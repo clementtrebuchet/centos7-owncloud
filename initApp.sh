@@ -30,3 +30,5 @@ fi
 echo "[INFO]Starting php-fpm & nginx Services..."
 /usr/sbin/php-fpm -F &  /usr/sbin/nginx -c /etc/nginx/nginx_ssl.conf &
 echo "[INFO]Go to https://YOUR-HOST/owncloud..."
+tail -f /var/log/nginx/*.log &
+tail -f /var/log/php-fpm/*.log 

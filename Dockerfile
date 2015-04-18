@@ -1,3 +1,5 @@
+
+
 #Owncloud 8.0.2 On CentOS 7 
 
 From centos:latest
@@ -22,7 +24,6 @@ RUN chmod +x /initApp.sh
 RUN if [[ ! -d /usr/share/nginx/ ]]; then mkdir -p /usr/share/nginx/ ; fi ;
 RUN wget https://download.owncloud.org/community/owncloud-8.0.2.tar.bz2
 RUN tar xfv owncloud-8.0.2.tar.bz2 -C /usr/share/nginx/
-COPY autoconfig.php /usr/share/nginx/owncloud/config/autoconfig.php
 RUN chown -R nginx:nginx /usr/share/nginx/owncloud
 RUN rm -f owncloud-8.0.2.tar.bz2
 #Set user and group to nginx           
@@ -38,4 +39,3 @@ VOLUME /datastore
 EXPOSE 443
 EXPOSE 80
 CMD ["/initApp.sh"]
-

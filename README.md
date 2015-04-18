@@ -1,12 +1,15 @@
 # centos7-owncloud
 
-#Binding to Postgresql 
-##Run container
-docker run --name postgresql -d postgres
+Database : Only Postgresql is aviable.
+SSL : Only Auto generated cert aviable.
+File System : export /repodata to host.
+ 
+##Run Postgresql container :
+sudo docker run --name postgresql -d postgres
 
-##Binding
-docker run -p 443:443 -p 80:80 --link postgresql:db 
+##Run Owncloud container : 
+sudo docker run -p 443:443 -p 80:80 --link postgresql:db owncloudcentos7:0.1
 
-##Extending data FS
-docker run -p 443:443 -p 80:80 --link postgresql:db -v /repodata:/repodata
+##Mapping file System :
+sudo docker run -p 443:443 -p 80:80 --link postgresql:db -v /repodata:/repodata owncloudcentos7:0.1
 

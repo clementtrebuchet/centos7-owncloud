@@ -14,3 +14,6 @@
 ##Mapping file System :
 	sudo docker run -p 443:443 -p 80:80 --link some-mysql:mysql -v /datastore:/datastore owncloudcentos7:0.1
 
+##Docker Tips 
+    - delete all unwanted none images
+    	sudo docker images |grep none |awk -F" " '{print $3}' |xargs sudo docker rmi

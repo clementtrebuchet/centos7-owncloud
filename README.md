@@ -1,8 +1,7 @@
 # centos7-owncloud
-
-###Database : Only Postgresql is available.
-###SSL : Only Auto generated cert available.
-###File System : export /datastore to host.
+   - Database : Only Postgresql is available.
+   - SSL : Only Auto generated cert available.
+   - File System : export /datastore to host.
  
 ##Run Postgresql container :
 sudo docker run --name postgresql -d postgres

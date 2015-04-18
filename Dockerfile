@@ -25,7 +25,7 @@ COPY autoconfig.php /var/www/owncloud/config/autoconfig.php
 RUN pushd /usr/share/nginx/
 RUN wget https://download.owncloud.org/community/owncloud-8.0.2.tar.bz2; tar xfv owncloud-8.0.2.tar.bz2
 COPY autoconfig.php /usr/share/owncloud/config/autoconfig.php
-RUNi chown -R nginx:nginx /usr/share/nginx/owncloud
+RUN chown -R nginx:nginx /usr/share/nginx/owncloud
 RUN rm -f owncloud-8.0.2.tar.bz2
 RUN popd
 #Set user and group to nginx           

@@ -2,7 +2,9 @@
    - Database : Both SQLite & MySQL are available.
    - SSL : Only Auto generated cert available.
    - File System : export /datastore to host.
- 
+
+##Get MySQL from official repo
+	sudo docker pull mysql
 ##Run MySQL container :
 	sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 

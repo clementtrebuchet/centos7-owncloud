@@ -1,4 +1,7 @@
 # centos7-owncloud
+   
+   - CentOS 7
+   - Owncloud 8.0.2
    - Database : Both SQLite & MySQL are available.
    - SSL : Only Auto generated cert available.
    - File System : export /datastore to host.

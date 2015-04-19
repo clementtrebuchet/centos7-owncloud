@@ -17,11 +17,11 @@
 	sudo docker run --name owncloud -p 443:443 -p 80:80 --link ownmysql:mysql  centos7-owncloud
 
 ##Map local file System :
-	sudo docker run -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud
+	sudo docker run --name ownmysql -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud
 
 ##Tips 
     - Debug bash console 
-	sudo docker run -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud bash
+	sudo docker run --name ownmysql -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud bash
 	
     - Start initApp (init owncloud)
 	[root@ee2213426597 /]bash initApp.sh

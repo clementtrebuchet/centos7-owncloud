@@ -11,21 +11,21 @@
 ##Run MySQL container :
 	sudo docker run --name ownmysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 
-… where ownmysql is the name you want to assign to your container, my-secret-pw is the password to be set for the MySQL root user and tag is the tag specifying the MySQL version you want. 
+.. … where ownmysql is the name you want to assign to your container, my-secret-pw is the password to be set for the MySQL root user. 
 
 ##Run Owncloud container : 
-	sudo docker run --name owncloud -p 443:443 -p 80:80 --link ownmysql:mysql -v /tmp/datastore:/datastore owncloudcentos7:0.1
+	sudo docker run --name owncloud -p 443:443 -p 80:80 --link ownmysql:mysql  centos7-owncloud
 
-##Mapping file System :
-	sudo docker run -p 443:443 -p 80:80 --link ownmysql:mysql -v /datastore:/datastore owncloudcentos7:0.1
+##Map local file System :
+	sudo docker run -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud
 
-##Docker Tips 
-    - delete all unwanted none images
-    	sudo docker images |grep none |awk -F" " '{print $3}' |xargs sudo docker rmi
-
+##Tips 
     - Debug bash console 
-	sudo docker run -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /tmp/datastore:/datastore owncloudcentos7:0.1 bash
+	sudo docker run -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud bash
 	
+    - Start initApp (init owncloud)
+	[root@ee2213426597 /]bash initApp.sh
+    - Env 
 	[root@ee2213426597 /]# env
 	C=FR
 	HOSTNAME=ee2213426597

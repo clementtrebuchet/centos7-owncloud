@@ -21,14 +21,13 @@ else
 	sed -i "s#-x-replace-key-x-#/etc/nginx/ssl/owncloud.key#"  /etc/nginx_ssl.conf
         echo "[INFO]Copy nginx SSL config file"
 	cp -p  /etc/nginx_ssl.conf /etc/nginx/nginx_ssl.conf
-	cat /etc/nginx/nginx_ssl.conf
 	#to include the domain to the hosts
         echo 127.0.0.1 $CANO >> /etc/hosts
         date > /etc/configured
 	
 fi
 echo "[INFO]Starting php-fpm & nginx Services..."
-/usr/sbin/php-fpm -F &  /usr/sbin/nginx -c /etc/nginx/nginx_ssl.conf &
-echo "[INFO]Go to https://YOUR-HOST/owncloud..."
-tail -f /var/log/nginx/*.log &
-tail -f /var/log/php-fpm/*.log 
+touch /var/log/nginx/access.log && touch /var/log/nginx/error.log
+tail -F /var/log/nginx/*.log &
+echo "[INFO]Go to : { https://"${CANO}"/owncloud } to access to the instance"
+/usr/sbin/php-fpm -F &  /usr/sbin/nginx -c /etc/nginx/nginx_ssl.conf

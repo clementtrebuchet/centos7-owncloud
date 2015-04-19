@@ -6,7 +6,7 @@
    - SSL : Only auto generated cert available.
    - File System : expose /datastore to host.
 
-##Get MySQL from official repo
+##Get MySQL from official repo :
 	sudo docker pull mysql
 
 ##Run MySQL container :
@@ -17,13 +17,13 @@
 ##Run Owncloud container : 
 	sudo docker run --name owncloud -p 443:443 -p 80:80 --link ownmysql:mysql  centos7-owncloud
 
-##Run Owncloud container with SSL parameters
+##Run Owncloud container with SSL parameters :
 	sudo docker run --name owncloud -p 443:443 -p 80:80 --link ownmysql:mysql -e C=FR -e ST=MIDI-PYRENEES -e L=TOULOUSE -e O=dockerapp.tk -e OU=AppLAB -e CN=example.com centos7-owncloud
 
-##Map host file system :
+##Map file system :
 	sudo docker run --name ownmysql -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud
 
-##Tips 
+##Tips :
     - Debug bash console 
 	sudo docker run --name ownmysql -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /var/datastore:/datastore centos7-owncloud bash
 	

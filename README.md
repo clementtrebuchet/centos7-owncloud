@@ -9,9 +9,9 @@
 ##Get MySQL from official repo
 	sudo docker pull mysql
 ##Run MySQL container :
-	sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+	sudo docker run --name ownmysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 
-… where some-mysql is the name you want to assign to your container, my-secret-pw is the password to be set for the MySQL root user and tag is the tag specifying the MySQL version you want. 
+… where ownmysql is the name you want to assign to your container, my-secret-pw is the password to be set for the MySQL root user and tag is the tag specifying the MySQL version you want. 
 
 ##Run Owncloud container : 
 	sudo docker run -p 443:443 -p 80:80 --link some-mysql:mysql owncloudcentos7:0.1

@@ -23,7 +23,7 @@
     - delete all unwanted none images
     	sudo docker images |grep none |awk -F" " '{print $3}' |xargs sudo docker rmi
 
-    - lauch bash console 
+    - Debug bash console 
 	sudo docker run -i -t -p 443:443 -p 80:80 --link ownmysql:mysql -v /tmp/datastore:/datastore owncloudcentos7:0.1 bash
 	
 	[root@ee2213426597 /]# env
